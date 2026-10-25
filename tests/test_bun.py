@@ -1,17 +1,13 @@
 import pytest
 from praktikum.bun import Bun
-
-@pytest.fixture
-def default_bun():
-    """Фикстура для создания стандартной булочки"""
-    return Bun("Краторная булка", 100.0)
+from praktikum.data import TestData  # Импортируем класс с данными
 
 class TestBun:
     def test_bun_get_name_returns_correct_value(self, default_bun):
-        assert default_bun.get_name() == "Краторная булка"
+        assert default_bun.get_name() == TestData.BUN_NAME
 
     def test_bun_get_price_returns_correct_value(self, default_bun):
-        assert default_bun.get_price() == 100.0
+        assert default_bun.get_price() == TestData.BUN_PRICE
 
     # Проверяем разные граничные значения через параметризацию
     @pytest.mark.parametrize(

@@ -1,10 +1,6 @@
 import pytest
 from praktikum.database import Database
 
-@pytest.fixture
-def database_instance():
-    """Фикстура возвращает чистый объект базы данных"""
-    return Database()
 
 class TestDatabase:
     def test_database_available_buns_returns_not_empty_list(self, database_instance):
